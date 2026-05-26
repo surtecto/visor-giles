@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Técnica: Espacio Urbano COU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cad-bg: #0f172a; /* Deep slate / blueprint background */
+            --cad-line: #38bdf8; /* Cyan drafting lines */
+            --cad-text: #e2e8f0; /* Light gray text */
+            --cad-dim: #fca5a5; /* Red/pink for dimensions */
+            --cad-grid: rgba(56, 189, 248, 0.1);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--cad-bg); 
+            color: var(--cad-text); 
+            /* Technical Grid Background */
+            background-image: 
+                linear-gradient(var(--cad-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--cad-grid) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: center top;
+        }
+
+        .font-tech { font-family: 'JetBrains Mono', monospace; }
+        
+        .cad-panel {
+            background-color: rgba(15, 23, 42, 0.85);
+            border: 1px solid #334155;
+            backdrop-filter: blur(4px);
+        }
+
+        .cad-border { border: 1px solid var(--cad-line); }
+        .cad-border-b { border-bottom: 1px solid var(--cad-line); }
+        .cad-border-r { border-right: 1px solid var(--cad-line); }
+
+        /* SVG Styles for Technical Drawing */
+        .svg-draft {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .draft-line { stroke: var(--cad-line); stroke-width: 2; fill: none; }
+        .draft-line-thin { stroke: var(--cad-line); stroke-width: 1; fill: none; }
+        .draft-dash { stroke: var(--cad-line); stroke-width: 1.5; stroke-dasharray: 6 4; fill: none; }
+        .draft-dim { stroke: var(--cad-dim); stroke-width: 1.5; fill: none; }
+        .draft-text { fill: var(--cad-dim); font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+        .draft-label { fill: var(--cad-text); font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; }
+        .draft-hatch { fill: url(#diagonalHatch); stroke: var(--cad-line); stroke-width: 1; }
+    </style>
+</head>
+<body class="antialiased p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto cad-panel cad-border">
+        
+        <!-- TITLE BLOCK (Rótulo) -->
+        <header class="flex flex-col md:flex-row cad-border-b">
+            <div class="p-6 md:w-3/4 cad-border-r">
+                <h1 class="text-3xl font-tech font-bold text-sky-400 mb-2 tracking-tight">ANÁLISIS MORFOLÓGICO: ESPACIO URBANO</h1>
+                <p class="text-sm font-tech text-slate-400">CÓDIGO DE ORDENAMIENTO URBANO Y TERRITORIAL (COU) - SAN ANDRÉS DE GILES</p>
+                <p class="text-xs font-tech text-slate-500 mt-1">SECCIONES: 1.3.1.3 / 4.1.1 / 4.1.3 / 4.1.4</p>
+            </div>
+            <div class="p-6 md:w-1/4 grid grid-cols-2 gap-2 text-xs font-tech text-slate-400 items-center">
+                <div>ESCALA: <span class="text-sky-300">S/E</span></div>
+                <div>FECHA: <span class="text-sky-300">ACTUALIZADO</span></div>
+                <div>PLANO Nº: <span class="text-sky-300">EU-01</span></div>
+                <div>REVISIÓN: <span class="text-sky-300">TÉCNICA</span></div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT GRID -->
+        <main class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <!-- LEFT COLUMN: Definitions & General Rules -->
+            <div class="lg:col-span-4 cad-border-r flex flex-col">
+                
+                <div class="p-6 cad-border-b">
+                    <h2 class="text-lg font-tech font-bold text-sky-400 mb-4 border-b border-slate-700 pb-2">1. DEFINICIÓN NORMATIVA (ART. 4.1.1)</h2>
+                    <p class="text-sm leading-relaxed text-slate-300 text-justify">
+                        Espacio aéreo abierto capaz de garantizar condiciones de habitabilidad en función de requerimientos ambientales (iluminación, ventilación, asoleamiento, acústica).<br><br>
+                        <span class="text-sky-300 font-semibold uppercase">Condición estricta:</span> La ventilación e iluminación de locales de habitación y trabajo <strong>sólo</strong> podrá realizarse por medio del Espacio Urbano.
+                    </p>
+                </div>
+
+                <div class="p-6 cad-border-b flex-grow">
+                    <h2 class="text-lg font-tech font-bold text-sky-400 mb-4 border-b border-slate-700 pb-2">2. RESTRICCIONES GENERALES</h2>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-sm font-bold text-slate-200 mb-2">A. PLANO DE ARRANQUE (Art. 4.1.3.2)</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed text-justify mb-2">
+                            Plano horizontal virtual desde el nivel de la <span class="text-sky-300">Cota de la Parcela</span> determinada por la Municipalidad. La cota del plano debe indicarse obligatoriamente en el proyecto.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-200 mb-2">B. PROHIBICIÓN DE CUBIERTAS (Art. 4.1.3.3)</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed text-justify">
+                            Las áreas descubiertas que constituyen espacio urbano <strong>NO</strong> podrán cubrirse con elementos fijos ni con claraboyas vidriadas corredizas. Excepción única: toldos totalmente plegables.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-slate-900">
+                    <h2 class="text-lg font-tech font-bold text-sky-400 mb-4 border-b border-slate-700 pb-2">REFERENCIAS GEOMÉTRICAS</h2>
+                    <ul class="text-xs font-tech text-slate-400 space-y-2">
+                        <li><span class="text-sky-300">LM:</span> Línea Municipal</li>
+                        <li><span class="text-sky-300">LE:</span> Línea de Edificación</li>
+                        <li><span class="text-sky-300">LFI:</span> Línea de Frente Interno</li>
+                        <li><span class="text-sky-300">CLM:</span> Centro Libre de Manzana</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Technical Diagrams (Tipologías) -->
+            <div class="lg:col-span-8 p-6 bg-[#0B1221]">
+                <h2 class="text-lg font-tech font-bold text-sky-400 mb-6 border-b border-slate-700 pb-2">3. CONFORMACIÓN DEL ESPACIO URBANO (ART. 4.1.1.1)</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- SVG 1: Patios Interiores -->
+                    <div class="border border-slate-700 p-4 bg-slate-800/30">
+                        <h3 class="text-sm font-tech font-bold text-slate-200 mb-2 tracking-wide">TIPOLOGÍA D: PATIOS INTERIORES (Art 4.1.1.4)</h3>
+                        <p class="text-xs text-slate-400 mb-4 h-8">Lado mínimo (a) igual a la altura total (h) del mayor volumen. Mínimo absoluto: 5.00m.</p>
+                        
+                        <svg class="svg-draft" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 2 L 10 5 L 0 8 z" fill="var(--cad-dim)" />
+                                </marker>
+                                <marker id="tick" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                                    <line x1="2" y1="8" x2="8" y2="2" stroke="var(--cad-dim)" stroke-width="2" />
+                                </marker>
+                            </defs>
+                            <!-- Ground -->
+                            <line x1="20" y1="220" x2="280" y2="220" class="draft-line" stroke-width="3" />
+                            
+                            <!-- Buildings Section -->
+                            <rect x="50" y="100" width="60" height="120" class="draft-line" fill="rgba(56,189,248,0.05)" />
+                            <rect x="170" y="60" width="80" height="160" class="draft-line" fill="rgba(56,189,248,0.05)" />
+                            
+                            <!-- Dimensions -->
+                            <!-- a (width) -->
+                            <line x1="110" y1="200" x2="170" y2="200" class="draft-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+                            <text x="140" y="190" text-anchor="middle" class="draft-text">a</text>
+                            
+                            <!-- h (height) -->
+                            <line x1="265" y1="60" x2="265" y2="220" class="draft-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+                            <line x1="250" y1="60" x2="275" y2="60" class="draft-dim" stroke-width="0.5" />
+                            <text x="280" y="145" class="draft-text">h</text>
+                            
+                            <!-- Math / Rules -->
+                            <text x="140" y="100" text-anchor="middle" class="draft-text" font-weight="bold" fill="var(--cad-line)">a = h</text>
+                            <text x="140" y="120" text-anchor="middle" class="draft-text" fill="var(--cad-text)">a &ge; 5.00m</text>
+                        </svg>
+                    </div>
+
+                    <!-- SVG 2: Patios Apendiculares -->
+                    <div class="border border-slate-700 p-4 bg-slate-800/30">
+                        <h3 class="text-sm font-tech font-bold text-slate-200 mb-2 tracking-wide">TIPOLOGÍA E: PATIOS APENDICULARES (Art 4.1.1.5)</h3>
+                        <p class="text-xs text-slate-400 mb-4 h-8">Abertura de unión (a) &ge; profundidad (p) del patio. Abertura mínima: 4.00m.</p>
+                        
+                        <svg class="svg-draft" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Main Space -->
+                            <rect x="40" y="40" width="80" height="180" class="draft-dash" />
+                            <text x="80" y="130" text-anchor="middle" class="draft-label" transform="rotate(-90 80 130)">ESPACIO PRINCIPAL</text>
+                            
+                            <!-- Building & Patio (Top View) -->
+                            <path d="M 120 40 L 260 40 L 260 220 L 120 220 L 120 160 L 200 160 L 200 100 L 120 100 Z" class="draft-line" fill="rgba(56,189,248,0.05)" />
+                            
+                            <!-- Dimensions -->
+                            <!-- a (abertura) -->
+                            <line x1="120" y1="100" x2="120" y2="160" class="draft-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+                            <text x="105" y="135" class="draft-text">a</text>
+                            
+                            <!-- p (profundidad) -->
+                            <line x1="120" y1="130" x2="200" y2="130" class="draft-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+                            <text x="160" y="120" class="draft-text">p</text>
+                            
+                            <!-- Math / Rules -->
+                            <text x="160" y="185" text-anchor="middle" class="draft-text" font-weight="bold" fill="var(--cad-line)">a &ge; p</text>
+                            <text x="160" y="205" text-anchor="middle" class="draft-text" fill="var(--cad-text)">a &ge; 4.00m</text>
+                        </svg>
+                    </div>
+
+                    <!-- SVG 3: Espacio Lateral -->
+                    <div class="border border-slate-700 p-4 bg-slate-800/30">
+                        <h3 class="text-sm font-tech font-bold text-slate-200 mb-2 tracking-wide">TIPOLOGÍA C: ESPACIO LATERAL (Art 4.1.1.3)</h3>
+                        <p class="text-xs text-slate-400 mb-4 h-8">Distancia mínima entre paramentos laterales y línea divisoria de parcelas: 3.00m.</p>
+                        
+                        <svg class="svg-draft" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Eje Divisorio -->
+                            <line x1="50" y1="20" x2="50" y2="230" stroke="#fca5a5" stroke-width="1" stroke-dasharray="10 4 2 4" />
+                            <text x="50" y="15" text-anchor="middle" class="draft-text" font-size="10">EJE DIVISORIO</text>
+                            
+                            <!-- Ground -->
+                            <line x1="20" y1="230" x2="280" y2="230" class="draft-line" stroke-width="3" />
+                            
+                            <!-- Building Side View -->
+                            <rect x="110" y="80" width="140" height="150" class="draft-line" fill="rgba(56,189,248,0.05)" />
+                            
+                            <!-- Dimensions -->
+                            <line x1="50" y1="150" x2="110" y2="150" class="draft-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+                            <text x="80" y="140" text-anchor="middle" class="draft-text" font-weight="bold">d &ge; 3.00m</text>
+                        </svg>
+                    </div>
+
+                    <!-- SVG 4: Centro Libre de Manzana -->
+                    <div class="border border-slate-700 p-4 bg-slate-800/30">
+                        <h3 class="text-sm font-tech font-bold text-slate-200 mb-2 tracking-wide">TIPOLOGÍA B: CLM (Art. 4.1.1.2 & 4.1.4)</h3>
+                        <p class="text-xs text-slate-400 mb-4 h-8">LFI fijada a 25.00m de la LM. Mínimo 50% absorbente. Anexos familiares condicionados.</p>
+                        
+                        <svg class="svg-draft" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="8" height="8">
+                                    <path d="M-2,2 l4,-4 M0,8 l8,-8 M6,10 l4,-4" stroke="rgba(56,189,248,0.3)" stroke-width="1"/>
+                                </pattern>
+                            </defs>
+                            
+                            <!-- Parcel Borders -->
+                            <rect x="60" y="20" width="180" height="200" stroke="#64748b" stroke-width="2" fill="none" />
+                            
+                            <!-- LM Line -->
+                            <line x1="40" y1="220" x2="260" y2="220" stroke="#fca5a5" stroke-width="2" />
+                            <text x="150" y="235" text-anchor="middle" class="draft-text">L.M. (VÍA PÚBLICA)</text>
+                            
+                            <!-- LFI Line -->
+                            <line x1="40" y1="100" x2="260" y2="100" stroke="#fca5a5" stroke-width="2" stroke-dasharray="10 5" />
+                            <text x="275" y="105" class="draft-text">L.F.I.</text>
+                            
+                            <!-- CLM Area -->
+                            <rect x="60" y="20" width="180" height="80" class="draft-hatch" />
+                            <text x="150" y="50" text-anchor="middle" class="draft-label" fill="#38bdf8">C.L.M.</text>
+                            <text x="150" y="65" text-anchor="middle" class="draft-text" font-size="10">(MÍN. 50% ABSORBENTE)</text>
+                            
+                            <!-- Edificación Principal -->
+                            <rect x="60" y="100" width="180" height="100" class="draft-line" fill="rgba(56,189,248,0.1)" />
+                            
+                            <!-- Edificación Permitida en CLM (Anexo) -->
+                            <rect x="60" y="20" width="40" height="30" stroke="#fca5a5" stroke-width="1.5" fill="rgba(252,165,165,0.1)" />
+                            
+                            <!-- Dimensions -->
+                            <!-- LFI 25m -->
+                            <line x1="45" y1="220" x2="45" y2="100" class="draft-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+                            <text x="15" y="165" class="draft-text" transform="rotate(-90 20 165)">25.00m</text>
+                            
+                            <!-- Distancia 6m anexo -->
+                            <line x1="80" y1="50" x2="80" y2="100" class="draft-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+                            <text x="105" y="80" class="draft-text" font-size="10">d &ge; 6.00m</text>
+                            
+                            <!-- Info box anexo -->
+                            <text x="110" y="30" class="draft-text" font-size="9" fill="#fca5a5">ANEXO (Art 4.1.1.2)</text>
+                            <text x="110" y="40" class="draft-text" font-size="9" fill="#fca5a5">H.máx: 3.00m / 4.50m</text>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+</body>
+</html>
